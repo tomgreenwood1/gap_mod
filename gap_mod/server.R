@@ -2,14 +2,9 @@
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
   
-  yearData <- reactive({gapminder %>% filter(year == input$year)
-                 })
-  
-  output$contplot <- renderPlotly(yearData() %>% filter(continent == "Africa") %>% 
-                                    plot_3d(lifeExp, pop, gdpPercap )
-                              )
-  
-  output$worldplot <- renderPlotly(yearData() %>% 
-                                    plot_3d(lifeExp, pop, gdpPercap )
-                              )
+  Africa <- callModule(compare3ds, "Africa", cont = "Africa")
+  Europe <- callModule(compare3ds, "Europe", cont = "Europe")
+  Americas <- callModule(compare3ds, "Americas", cont = "Americas")
+  Oceania <- callModule(compare3ds, "Oceania", cont = "Oceania")
+  Asia <- callModule(compare3ds, "Asia", cont = "Asia")
 }

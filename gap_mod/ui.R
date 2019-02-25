@@ -1,22 +1,22 @@
 
+source("compare3ds.R")
 
-ui <- navbarPage("Gapminder modules",
+ui <- navbarPage("Gapminder modules", theme = "bootstrap.css",
 
         tabPanel(title = "Africa", 
-                 sliderInput(inputId = "year",
-                             label = "year", 
-                             min = 1952, 
-                             max = 2007, 
-                             value = 1952,
-                             step = 5,
-                             animate = animationOptions(interval = 500)), 
-            fluidRow(
-              column(6, plotlyOutput("contplot")),
-              column(6, plotlyOutput("worldplot"))
-                   )
-                 
-                 )
-        
-    
+                 compare3dsUI("Africa")
+              ),
+        tabPanel(title = "Europe", 
+                 compare3dsUI("Europe")
+        ),
+        tabPanel(title = "Americas", 
+                 compare3dsUI("Americas")
+        ),
+        tabPanel(title = "Oceania", 
+                 compare3dsUI("Oceania")
+        ),
+        tabPanel(title = "Asia", 
+                 compare3dsUI("Asia")
+        )
 )
 

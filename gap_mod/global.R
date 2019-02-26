@@ -1,4 +1,4 @@
-library(r2d3)
+library(lubridate)
 library(magrittr)
 library(rlang)
 library(plotly)
@@ -6,6 +6,7 @@ library(randomForest)
 library(gapminder)
 library(tidyverse)
 library(shiny)
+library(shinyWidgets)
 
 
 # function for 3d plots
@@ -29,7 +30,7 @@ plot_3d <- function(df, x, y, z, title, text, color) {
               size = 10,
               text = text,
               color = color,
-              colors = c("grey", "red")
+              colors = c("grey", "red", "blue")
               
     ) %>% hide_colorbar %>%
     layout(title = title,

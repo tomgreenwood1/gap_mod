@@ -84,8 +84,8 @@ hr {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-top: 0.25;
+  margin-bottom: 1.25rem;
 }
 
 p {
@@ -232,7 +232,7 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
 }
 
 button {
@@ -10481,7 +10481,7 @@ a.text-dark:hover, a.text-dark:focus {
     text-decoration: underline;
   }
   abbr[title]::after {
-    content: " (" attr(title) ")";
+    content: " (" attr(title) ")"; 
   }
   pre {
     white-space: pre-wrap !important;

@@ -7,12 +7,14 @@ library(gapminder)
 library(tidyverse)
 library(shiny)
 library(shinyWidgets)
+library(data.table)
 
+gapminder %<>% as.data.table
 
 # function for 3d plots
 ########################################################################################
 
-plot_3d <- function(df, x, y, z, title, text, color) {
+plot_3d <- function(df, x, y, z, title, text, color, colors) {
   
   x <- enquo(x)
   y <- enquo(y)
@@ -30,7 +32,7 @@ plot_3d <- function(df, x, y, z, title, text, color) {
               size = 10,
               text = text,
               color = color,
-              colors = c("grey", "red", "blue")
+              colors = colors
               
     ) %>% hide_colorbar %>%
     layout(title = title,

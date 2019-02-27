@@ -9,7 +9,7 @@ library(shiny)
 library(shinyWidgets)
 library(data.table)
 
-gapminder %<>% as.data.table
+gapminder %<>% as.data.table %>% setkey(continent)
 
 # function for 3d plots
 ########################################################################################
@@ -38,8 +38,7 @@ plot_3d <- function(df, x, y, z, title, text, color, colors) {
     layout(title = title,
            scene = list(xaxis = list(title = quo_text(x)),
                         yaxis = list(title = quo_text(y)),
-                        zaxis = list(title = quo_text(z)) 
-          
+                        zaxis = list(title = quo_text(z))
    )
   )
   
